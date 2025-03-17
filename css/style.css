@@ -616,7 +616,7 @@ section.stats {
 section.stats .overlay-container {
   background-color: var(--transparent-color);
   position: relative;
-  z-index: 5;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
 }
@@ -962,7 +962,7 @@ section.subscribe {
 section.subscribe .container {
   display: flex;
   align-items: center;
-  z-index: 4;
+  z-index: 1;
   position: relative;
 }
 
@@ -1147,7 +1147,7 @@ footer .container {
   flex-direction: column;
   justify-content: center;
   position: relative;
-  z-index: 5;
+  z-index: 1;
 }
 footer .container img {
   display: initial;
