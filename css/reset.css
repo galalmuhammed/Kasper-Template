@@ -1,0 +1,156 @@
+/* Start Global Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  caret-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: initial;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+img,
+picture,
+svg,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  cursor: pointer;
+}
+
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0;
+}
+
+/* Handle (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #19c8fa;
+  border-radius: 0; /* No rounded corners */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #19c9fa79;
+}
+
+/* End Global Reset */
+
+/* ------------------------- */
+
+/* Start Break Points */
+.container {
+  padding: 0 20px;
+  margin-inline: auto;
+  box-shadow: 0 0 0 #777;
+  /* overflow: hidden; */
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* End Break Points */
+
+/* ------------------------- */
+
+/* Start Components */
+.main-heading h2 {
+  position: relative;
+  font-weight: normal;
+  font-size: 40px;
+  margin-bottom: 70px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.main-heading h2::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  bottom: -38px;
+  background-color: white;
+}
+
+.main-heading h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  background-color: #333;
+  bottom: -30px;
+  width: 120px;
+  z-index: -1;
+}
+
+.main-heading p {
+  width: 550px;
+  margin: 0 auto 80px;
+  max-width: 100%;
+  line-height: 2;
+  text-align: center;
+  color: #777;
+  padding-inline: 20px;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 70%);
+}
+
+/* End Components */
