@@ -221,7 +221,7 @@ section.landing .right {
   }
 }
 
-section.landing .page-cirles {
+section.landing .page-circles {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -229,7 +229,7 @@ section.landing .page-cirles {
   z-index: 3;
 }
 
-section.landing .page-cirles > * {
+section.landing .page-circles > * {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -237,7 +237,7 @@ section.landing .page-cirles > * {
   border: 1px solid white;
 }
 
-section.landing .page-cirles li:nth-child(2) {
+section.landing .page-circles li:nth-child(2) {
   background-color: var(--main-color);
   border-color: var(--main-color);
   margin-left: 3px;
@@ -430,6 +430,7 @@ section.portfolio .portfolio-images-container {
 @media (max-width: 767px) {
   section.portfolio .portfolio-images-container {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 /* @media (max-width: 1199px) {
@@ -450,6 +451,8 @@ section.portfolio .portfolio-images-container {
 }
 
 .portfolio-images-container .image-box img {
+  aspect-ratio: 9 / 6;
+  height: auto;
   transition: 0.3s ease;
 }
 
@@ -488,7 +491,7 @@ section.portfolio .btn {
 section.portfolio .btn {
   background-color: var(--main-color);
   color: white;
-  padding: 10px 15px;
+  padding: 15px 20px;
   display: block;
   width: fit-content;
   margin: 30px auto;
@@ -556,7 +559,7 @@ section.video .overlay-container p {
 section.video .overlay-container .btn {
   background-color: black;
   color: white;
-  padding: 10px 20px;
+  padding: 15px 20px;
   border: none;
   text-transform: uppercase;
   cursor: pointer;
@@ -614,7 +617,6 @@ section.stats {
 }
 
 section.stats .overlay-container {
-  background-color: var(--transparent-color);
   position: relative;
   z-index: 1;
   display: flex;
@@ -622,6 +624,7 @@ section.stats .overlay-container {
 }
 
 section.stats .overlay-container .overlay-card {
+  background-color: var(--transparent-color);
   padding: 50px;
   color: white;
   flex-basis: 25%;
@@ -637,6 +640,9 @@ section.stats .overlay-container .overlay-card {
 }
 
 @media (max-width: 767px) {
+  section.stats .overlay-container {
+    gap: 10px;
+  }
   section.stats .overlay-container .overlay-card {
     flex-basis: 100%;
   }
@@ -663,6 +669,8 @@ section.stats .overlay-container .overlay-card p {
   font-size: 14px;
 }
 /* End Stats */
+
+/* ------------------------------------------------------- */
 
 /* Start Testimonials */
 section.testimonials {
@@ -723,14 +731,14 @@ section.testimonials .testimonial-card-container .testimonial-card .people p {
   margin-bottom: 10px;
 }
 
-section.testimonials .testimonial-card-container .testimonial-card .page-cirles {
+section.testimonials .testimonial-card-container .testimonial-card .page-circles {
   display: flex;
   justify-content: center;
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
-section.testimonials .testimonial-card-container .testimonial-card .page-cirles > * {
+section.testimonials .testimonial-card-container .testimonial-card .page-circles > * {
   display: inline-block;
   width: 15px;
   height: 15px;
@@ -738,7 +746,7 @@ section.testimonials .testimonial-card-container .testimonial-card .page-cirles 
   border: 1px solid var(--p-color);
 }
 
-section.testimonials .testimonial-card-container .testimonial-card .page-cirles li:nth-child(2) {
+section.testimonials .testimonial-card-container .testimonial-card .page-circles li:nth-child(2) {
   background-color: var(--main-color);
   border-color: var(--main-color);
   margin-left: 5px;
@@ -763,23 +771,25 @@ section.testimonials .testimonial-card-container .testimonial-card .progress-bar
   background-color: var(--main-color);
   height: 100%;
   display: block;
+  width: 0;
   position: relative;
+  transition: .8s cubic-bezier(0.12, 0.3, 0.12, 1.21);
 }
 
-section.testimonials .testimonial-card-container .testimonial-card .progress-bar .bar .bar-90 {
+section.testimonials .testimonial-card-container .testimonial-card .progress-bar .bar:hover .bar-90 {
   width: 90%;
 }
 
-section.testimonials .testimonial-card-container .testimonial-card .progress-bar .bar .bar-85 {
+section.testimonials .testimonial-card-container .testimonial-card .progress-bar .bar:hover .bar-85 {
   width: 85%;
 }
 
-section.testimonials .testimonial-card-container .testimonial-card .progress-bar .bar .bar-80 {
+section.testimonials .testimonial-card-container .testimonial-card .progress-bar .bar:hover .bar-80 {
   width: 80%;
 }
 
 section.testimonials .testimonial-card-container .testimonial-card .progress-bar span::before {
-  content: attr(data-progress);
+  content: attr(data-prog);
   position: absolute;
   background-color: black;
   color: white;
@@ -789,16 +799,31 @@ section.testimonials .testimonial-card-container .testimonial-card .progress-bar
   width: 40px;
   text-align: center;
   border-radius: 4px;
+  opacity: 0;
+  transition: 1s cubic-bezier(0.12, 0.3, 0.12, 1.21);
+}
+
+section.testimonials .testimonial-card-container .testimonial-card .progress-bar .bar:hover span::before  {
+  opacity: 1;
 }
 
 section.testimonials .testimonial-card-container .testimonial-card .progress-bar span::after {
   content: "";
   position: absolute;
-  border-style: solid;
-  border-width: 8px;
+  border: 8px solid;
+  border-color: transparent transparent transparent black;
+  right: 2px;
+  top: 8px;
+  opacity: 0.3;
+}
+
+section.testimonials .testimonial-card-container .testimonial-card .progress-bar .bar:hover span::after {
+  content: "";
+  position: absolute;
   border-color: black transparent transparent;
   right: -8px;
   top: -11px;
+  opacity: 1;
 }
 /* End Testimonials */
 
@@ -840,6 +865,12 @@ section.pricing .pricing-container {
 }
 
 section.pricing .pricing-container .pricing-card {
+  box-shadow: 7px 7px 18px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  transition: .3s ease;
+}
+
+section.pricing .pricing-container .pricing-card:hover {
   box-shadow: 7px 7px 18px rgb(0 0 0 / 25%);
 }
 
@@ -897,7 +928,7 @@ section.pricing .pricing-container .pricing-card .second-section ul li:not(:last
 
 section.pricing .pricing-container .pricing-card .third-section a.btn {
   display: block;
-  padding: 20px 20px;
+  padding: 15px 20px;
   text-decoration: none;
   border: 1px solid var(--main-color);
   width: fit-content;
@@ -1041,6 +1072,8 @@ section.subscribe .container p {
 
 /* End Subscribe */
 
+/* ------------------------------------------------------- */
+
 /* Start Contanct */
 section.contact {
   padding: var(--section-padding);
@@ -1069,6 +1102,7 @@ section.contact .contact-container form textarea {
   border: 1px solid #ccc;
   margin-bottom: 30px;
   width: 100%;
+  border-radius: 10px;
   caret-color: var(--main-color);
 }
 
@@ -1079,7 +1113,7 @@ section.contact .contact-container form textarea {
 section.contact .contact-container form input[type="submit"] {
   display: block;
   margin-left: auto;
-  padding: 20px;
+  padding: 15px 20px;
   background-color: var(--main-color);
   color: white;
   border: none;
@@ -1095,6 +1129,7 @@ section.contact .contact-container form input[type="submit"] {
 section.contact .contact-container form input[type="submit"]:hover,
 section.contact .contact-container form input[type="submit"]:focus {
   background-color: #19c9fab0;
+  outline-color: black;
 }
 
 section.contact .contact-container .text {
@@ -1129,9 +1164,15 @@ section.contact .contact-container .text address {
   section.contact .contact-container .text span:nth-child(3) {
     margin-bottom: 40px;
   }
+
+  section.contact .contact-container .text address {
+    margin-bottom: 40px
+  }
 }
 
 /* Start Contanct */
+
+/* ------------------------------------------------------- */
 
 /* Start Footer */
 footer {
