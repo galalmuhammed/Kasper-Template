@@ -153,4 +153,9 @@ li {
   background-color: rgb(0 0 0 / 70%);
 }
 
+.btn {
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 /* End Components */
