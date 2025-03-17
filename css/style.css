@@ -773,7 +773,7 @@ section.testimonials .testimonial-card-container .testimonial-card .progress-bar
   display: block;
   width: 0;
   position: relative;
-  transition: .8s cubic-bezier(0.12, 0.3, 0.12, 1.21);
+  transition: 0.8s cubic-bezier(0.12, 0.3, 0.12, 1.21);
 }
 
 section.testimonials .testimonial-card-container .testimonial-card .progress-bar .bar:hover .bar-90 {
@@ -803,7 +803,7 @@ section.testimonials .testimonial-card-container .testimonial-card .progress-bar
   transition: 1s cubic-bezier(0.12, 0.3, 0.12, 1.21);
 }
 
-section.testimonials .testimonial-card-container .testimonial-card .progress-bar .bar:hover span::before  {
+section.testimonials .testimonial-card-container .testimonial-card .progress-bar .bar:hover span::before {
   opacity: 1;
 }
 
@@ -867,7 +867,7 @@ section.pricing .pricing-container {
 section.pricing .pricing-container .pricing-card {
   box-shadow: 7px 7px 18px rgb(0 0 0 / 10%);
   border-radius: 10px;
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 
 section.pricing .pricing-container .pricing-card:hover {
@@ -1110,24 +1110,34 @@ section.contact .contact-container form textarea {
   height: 200px;
 }
 
-section.contact .contact-container form input[type="submit"] {
-  display: block;
-  margin-left: auto;
+section.contact .contact-container form .buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+section.contact .contact-container form input[type="submit"],
+section.contact .contact-container form input[type="reset"] {
   padding: 15px 20px;
   background-color: var(--main-color);
   color: white;
   border: none;
   transition: 0.3s ease;
+  left: 0;
 }
 
 @media (max-width: 767px) {
-  section.contact .contact-container form input[type="submit"] {
-    margin-inline: auto;
+  section.contact .contact-container form .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
   }
 }
 
 section.contact .contact-container form input[type="submit"]:hover,
-section.contact .contact-container form input[type="submit"]:focus {
+section.contact .contact-container form input[type="submit"]:focus,
+section.contact .contact-container form input[type="reset"]:hover,
+section.contact .contact-container form input[type="reset"]:focus {
   background-color: #19c9fab0;
   outline-color: black;
 }
@@ -1166,7 +1176,7 @@ section.contact .contact-container .text address {
   }
 
   section.contact .contact-container .text address {
-    margin-bottom: 40px
+    margin-bottom: 40px;
   }
 }
 
